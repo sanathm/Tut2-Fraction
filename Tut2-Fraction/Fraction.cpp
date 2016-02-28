@@ -68,14 +68,14 @@ Fraction Fraction::divide(Fraction x){
 void Fraction::print(){
 	int whole = (int)numerator / denominator;
 	int remainder = numerator%denominator;
+	/*
 	for (int i = numerator * denominator; i > 1; i--) {
 		if ((denominator % i == 0) && (numerator % i == 0)) {
 			denominator = denominator / i;
 			numerator = numerator / i;
 		}
-
 	}
-
+	*/
 	cout << whole << " + (" << remainder << "/" << denominator << ")" << endl;
 }
 
@@ -86,13 +86,32 @@ int main()
 	Fraction result = Fraction();
 	a.setNumDenom(5, 4);
 	b.setNumDenom(2, 3);
+	
+	//add
+	cout << "Addition:" << endl;
 	result = a.add(b);
 	result.getNumDenom();
+	result.print();
+	cout << endl;
+
+	//subtraction
+	cout << "Subtraction:" << endl;
 	result = a.subtract(b);
 	result.getNumDenom();
+	result.print();
+	cout << endl;
+
+	//multiplication
+	cout << "Multiplication:" << endl;
 	result = a.multiply(b);
 	result.getNumDenom();
+	result.print();
+	cout << endl;
+
+	//division
+	cout << "Division:" << endl;
 	result = a.divide(b);
 	result.getNumDenom();
 	result.print();
+	cout << endl;
 }
