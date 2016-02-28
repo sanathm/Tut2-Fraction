@@ -4,34 +4,13 @@ using namespace std;
 
 class Fraction
 {
-	Fraction(){
+private:
+	int numerator;
+	int denominator;
 
-	}
-
-	~Fraction()
-	{
-
-	}
-
-	void setNumDenom()
-	{
-
-	}
-
-	void getNumDenom()
-	{
-
-	}
-
-	Fraction add(Fraction in)
-	{
-
-	}
-
-	Fraction subtract(Fraction in)
-	{
-
-	}
+public:
+	Fraction();
+	~Fraction();
 };
 
 int main()
