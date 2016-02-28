@@ -68,6 +68,13 @@ Fraction Fraction::divide(Fraction x){
 void Fraction::print(){
 	int whole = (int)numerator / denominator;
 	int remainder = numerator%denominator;
+	for (int i = numerator * denominator; i > 1; i--) {
+		if ((denominator % i == 0) && (numerator % i == 0)) {
+			denominator = denominator / i;
+			numerator = numerator / i;
+		}
+
+	}
 
 	cout << whole << " + (" << remainder << "/" << denominator << ")" << endl;
 }
