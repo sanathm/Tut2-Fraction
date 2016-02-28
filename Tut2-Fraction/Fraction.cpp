@@ -14,7 +14,7 @@ public:
 	void getNumDenom();
 	void setNumDenom(int num, int denom);
 	Fraction add(Fraction x);
-	Fraction sutract(Fraction x);
+	Fraction subtract(Fraction x);
 	Fraction multiply(Fraction x);
 	Fraction divide(Fraction x);
 	void print();
@@ -46,6 +46,11 @@ Fraction Fraction:: add(Fraction x){
 	return b;
 }
 
+Fraction Fraction::subtract(Fraction x){
+	x.numerator = -x.numerator;
+	return add(x);
+}
+
 int main()
 {
 	Fraction a = Fraction();
@@ -54,5 +59,7 @@ int main()
 	a.setNumDenom(1, 4);
 	b.setNumDenom(2, 3);
 	result = a.add(b);
+	result.getNumDenom();
+	result = a.subtract(b);
 	result.getNumDenom();
 }
