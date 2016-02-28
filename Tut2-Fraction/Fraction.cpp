@@ -51,6 +51,20 @@ Fraction Fraction::subtract(Fraction x){
 	return add(x);
 }
 
+Fraction Fraction::multiply(Fraction x){
+	Fraction b = Fraction();
+	b.numerator = numerator*x.numerator;
+	b.denominator = denominator*x.denominator;
+	return b;
+}
+
+Fraction Fraction::divide(Fraction x){
+	int temp = x.numerator;
+	x.numerator = x.denominator;
+	x.denominator = temp;
+	return multiply(x);
+}
+
 int main()
 {
 	Fraction a = Fraction();
@@ -61,5 +75,9 @@ int main()
 	result = a.add(b);
 	result.getNumDenom();
 	result = a.subtract(b);
+	result.getNumDenom();
+	result = a.multiply(b);
+	result.getNumDenom();
+	result = a.divide(b);
 	result.getNumDenom();
 }
