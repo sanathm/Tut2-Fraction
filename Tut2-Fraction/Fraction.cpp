@@ -39,7 +39,7 @@ void Fraction::setNumDenom(int num, int denom){
 	denominator = denom;
 }
 
-Fraction Fraction:: add(Fraction x){
+Fraction Fraction::add(Fraction x){
 	Fraction b = Fraction();
 	b.numerator = (numerator*x.denominator) + (denominator*x.numerator);
 	b.denominator = denominator*x.denominator;
@@ -93,7 +93,9 @@ int main()
 	Fraction a = Fraction();
 	Fraction b = Fraction();
 	Fraction result = Fraction();
-	a.setNumDenom(7, 12);
+
+	//fraction input
+	a.setNumDenom(5, 4);
 	b.setNumDenom(7, 12);
 	
 	//add
