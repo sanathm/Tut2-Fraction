@@ -105,8 +105,8 @@ int main()
 	result.print();
 	cout << endl;
 
-	//operator- ion
-	cout << "operator- ion:" << endl;
+	//subtraction
+	cout << "Subtraction:" << endl;
 	result = a-b;
 	result.getNumDenom();
 	result.print();
