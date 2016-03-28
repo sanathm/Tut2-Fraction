@@ -11,12 +11,13 @@ private:
 public:
 	Fraction();
 	~Fraction();
-	void getNumDenom();
+	void getNumDenom(int &num,int &denom);
 	void setNumDenom(int num, int denom);
 	Fraction operator+(Fraction x);
 	Fraction operator- (Fraction x);
 	Fraction operator* (Fraction x);
 	Fraction operator/ (Fraction x);
+	friend ostream& operator<<(ostream &, const Fraction &);
 	void print();
 };
 
@@ -30,8 +31,9 @@ Fraction::~Fraction(){
 	denominator = NULL;
 }
 
-void Fraction::getNumDenom(){
-	cout << numerator << " / " << denominator << endl;
+void Fraction::getNumDenom(int &num,int &denom){
+	num = numerator;
+	denom = denominator;
 }
 
 void Fraction::setNumDenom(int num, int denom){
@@ -65,11 +67,14 @@ Fraction Fraction::operator/ (Fraction x){
 	return operator* (x);
 }
 
-void Fraction::print(){
-	if (numerator == 0){
-		cout << "0" << endl;
+std::ostream& operator<<(ostream & os, Fraction & f)
+{
+	int numerator, denominator;
+	f.getNumDenom(numerator, denominator);
+	if (numerator == 0) {
+		os << "0" ;
 	}
-	else{
+	else {
 		for (int i = denominator; i >= 1; i--) {
 			if ((denominator % i == 0) && (numerator % i == 0)) {
 				denominator = denominator / i;
@@ -79,13 +84,14 @@ void Fraction::print(){
 
 		int whole = (int)numerator / denominator;
 		int remainder = numerator%denominator;
-		if (remainder == 0){
-			cout << whole << endl;
+		if (remainder == 0) {
+			os << whole ;
 		}
-		else{
-			cout << whole << " + (" << remainder << "/" << denominator << ")" << endl;
-		}		
+		else {
+			os << whole << " + (" << remainder << "/" << denominator << ")" ;
+		}
 	}
+	return os;
 }
 
 int main()
@@ -101,28 +107,22 @@ int main()
 	//add
 	cout << "Addition:" << endl;
 	result = a+b;
-	result.getNumDenom();
-	result.print();
-	cout << endl;
+	cout << result << endl << endl;
 
 	//subtraction
 	cout << "Subtraction:" << endl;
 	result = a-b;
-	result.getNumDenom();
-	result.print();
-	cout << endl;
+	cout << result << endl << endl;
 
 	//multiplication
 	cout << "Multiplication:" << endl;
 	result = a*b;
-	result.getNumDenom();
-	result.print();
-	cout << endl;
+	cout << result << endl << endl;
 
 	//division
 	cout << "Division:" << endl;
 	result = a/b;
-	result.getNumDenom();
-	result.print();
-	cout << endl;
+	cout << result << endl << endl;
 }
+
+
